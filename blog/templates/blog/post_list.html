@@ -8,7 +8,9 @@
                 <p>Опубликовано: {{ post.published_date }}</p>
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            {% filter truncatechars:70 %}
             <p>{{ post.text|linebreaksbr }}</p>
+            {% endfilter %}
         </div>
     {% endfor %}
 {% endblock %}
